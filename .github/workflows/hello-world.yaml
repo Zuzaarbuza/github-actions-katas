@@ -13,7 +13,6 @@ jobs:
           path: .
   Test:
     name: Test
-    needs: Clone-down
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
@@ -23,7 +22,6 @@ jobs:
 
   Build:
     name: Build
-    needs: Clone-down
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
