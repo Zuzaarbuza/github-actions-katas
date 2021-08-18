@@ -5,8 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - uses: actions/checkout@v2
       - name: my-step
+        uses: actions/checkout@v2
+      - name: build app
         run: chmod +x ci/build-app.sh && ci/build-app.sh
       - name: test
         run: ci/unit-test-app.sh
+      - name: Upload Repo
+        uses: actions/upload-artifact@v2
+        with:
+          name: code
+          path: .
