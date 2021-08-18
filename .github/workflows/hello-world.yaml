@@ -18,6 +18,7 @@ jobs:
     container: gradle:6-jdk11
     steps:
       - name: test
+        uses: actions/upload-artifact@v2
         run: ci/unit-test-app.sh   
 
   Build:
@@ -27,4 +28,5 @@ jobs:
     container: gradle:6-jdk11
     steps:
       - name: build app
+        uses: actions/upload-artifact@v2
         run: chmod +x ci/build-app.sh && ci/build-app.sh
