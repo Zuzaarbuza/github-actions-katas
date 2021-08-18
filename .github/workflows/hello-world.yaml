@@ -2,17 +2,17 @@ name: Java CI
 on: push
 jobs:
   Clone-down: 
+    name: Clone-down
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
-      - name: my-step
-        uses: actions/checkout@v2
       - name: Upload Repo
         uses: actions/upload-artifact@v2
         with:
           name: code
           path: .
   Test:
+    name: Test
     needs: Clone-down
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
