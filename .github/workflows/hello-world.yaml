@@ -1,8 +1,7 @@
 name: Java CI
 on: push
 jobs:
-  job-1: 
-    name: Clone-down
+  Clone-down: 
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
@@ -13,8 +12,7 @@ jobs:
         with:
           name: code
           path: .
-  job-2:
-    name: Test
+  Test:
     needs: Clone-down
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
@@ -22,7 +20,7 @@ jobs:
       - name: test
         run: ci/unit-test-app.sh   
 
-  job-3:
+  Build:
     name: Build
     needs: Clone-down
     runs-on: ubuntu-latest
